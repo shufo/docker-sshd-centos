@@ -5,10 +5,10 @@ MAINTAINER shufo
  
 # Install Packages
 RUN yum update -y
-RUN yum install -y passwd openssh openssh-server openssh-clients sudo
+RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+RUN yum install -y passwd openssh openssh-server openssh-clients sudo python-pip
 
 # Install supervisor
-RUN curl --silent --show-error --retry 5 https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python
 RUN pip install supervisor
 RUN mkdir /var/log/supervisor
 ADD templates/supervisord.conf /etc/supervisord.conf
