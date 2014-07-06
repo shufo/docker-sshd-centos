@@ -38,4 +38,4 @@ RUN echo "root" > /root/password
 RUN bash -c 'echo "root:root" | chpasswd'
 
 # RUN supervisor
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-n"]
